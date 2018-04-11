@@ -16,8 +16,17 @@ public class GlacierController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        glacierMelt = (1-values.temperature) * multiplier;
-        transform.localScale = new Vector3(1, glacierMelt, 1);
+        glacierMelt = values.temperature * multiplier;
+        Debug.Log(glacierMelt);
+        if (glacierMelt > 1)
+        {
+            glacierMelt = 1;
+        }
+        if (glacierMelt < 0)
+        {
+            glacierMelt = 0;
+        }
+        transform.localScale = new Vector3(1, 1 - glacierMelt, 1);
         values.glacierMelt = glacierMelt;
 	}
 }
