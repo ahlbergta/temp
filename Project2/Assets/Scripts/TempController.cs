@@ -6,6 +6,7 @@ public class TempController : MonoBehaviour {
 
     public GameObject valueTracker;
     public float multiplier;
+    public float maxScale;
     private float temperature;
     private Values values;
 
@@ -16,8 +17,11 @@ public class TempController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        temperature = values.carbonPPM * multiplier;
-        transform.localScale = new Vector3(1, 1, temperature);
-        values.temperature = temperature;
+        float reading = 1 + (values.temperature * multiplier);
+        if(reading > maxScale)
+        {
+            reading = maxScale;
+        }
+        transform.localScale = new Vector3(1, 1, reading);
 	}
 }

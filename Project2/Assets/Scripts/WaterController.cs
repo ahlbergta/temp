@@ -19,5 +19,6 @@ public class WaterController : MonoBehaviour {
         waterLevel = values.glacierMelt * multiplier;
         transform.localPosition = new Vector3(0, waterLevel, 0);
         values.waterLevel = waterLevel;
+        //Debug.Log(waterLevel);
 	}
 }
