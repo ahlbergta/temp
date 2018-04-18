@@ -24,7 +24,6 @@ public class InteractionController : MonoBehaviour {
                 Ray ray = new Ray(cam.transform.position, cam.transform.forward);
                 if (Physics.Raycast(ray, out hit, 2))
                 {
-                    //Debug.Log("hit");
                     held = hit.collider.gameObject;
                     held.GetComponent<Rigidbody>().useGravity = false;
                     held.GetComponent<Rigidbody>().detectCollisions = false;
