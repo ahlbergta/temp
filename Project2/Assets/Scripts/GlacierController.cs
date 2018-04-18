@@ -17,12 +17,11 @@ public class GlacierController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         glacierMelt = values.temperature * multiplier;
-        Debug.Log(glacierMelt);
-        if (glacierMelt > 1)
+        if(glacierMelt > 1)
         {
             glacierMelt = 1;
         }
-        if (glacierMelt < 0)
+        else if(glacierMelt < 0)
         {
             glacierMelt = 0;
         }

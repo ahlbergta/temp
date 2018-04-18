@@ -6,6 +6,8 @@ public class GuageController : MonoBehaviour {
 
     public float multiplier;
     public GameObject valueTracker;
+    public float guageMin;
+    public float guageMax;
     private float carbonPPM;
     private Values values;
 
@@ -16,8 +18,11 @@ public class GuageController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        carbonPPM = values.coalCount * multiplier;
-        transform.localEulerAngles = new Vector3(0, carbonPPM, 0);
-        values.carbonPPM = carbonPPM;
+        float reading = guageMin + (values.carbonPPM * multiplier);
+        if(reading > guageMax)
+        {
+            reading = guageMax;
+        }
+        transform.localEulerAngles = new Vector3(0, reading, 0);
 	}
 }
